@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zippy – Quick Commerce Platform | Smith Technology Solutions</title>
+<meta name="theme-color" content="#f7c600">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="Zippy quick-commerce platform demo with customer, seller, admin and delivery apps, by Smith Technology Solutions.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%E2%9A%A1%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#f6f6f1;--sf:#fff;--tx:#1a1a1a;--mu:#6b6b6b;--ac:#f7c600;--gr:#0c831f;--rd:#d93025;--bd:#e6e6de;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121210;--sf:#1e1e1b;--tx:#f2f2ee;--mu:#a0a09a;--bd:#33332e}}
+:root[data-theme="dark"]{--bg:#121210;--sf:#1e1e1b;--tx:#f2f2ee;--mu:#a0a09a;--bd:#33332e}
+*{box-sizing:border-box}html{color-scheme:light dark}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:90px}
+header{background:var(--ac);color:#1a1a1a;padding:10px 16px;position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+.top{display:flex;justify-content:space-between;align-items:center}.logo{font-weight:900;font-size:22px}
+.roles{display:flex;gap:6px;margin-top:8px}.roles button{flex:1;padding:8px 4px;border:0;border-radius:10px;background:rgba(255,255,255,.55);font-weight:700;font-size:13px;cursor:pointer;color:#1a1a1a}
+.roles button.on{background:#1a1a1a;color:#fff}
+main{max-width:960px;margin:auto;padding:12px 16px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 0 10px}
+.chip{flex:none;padding:7px 13px;border-radius:20px;background:var(--sf);border:1px solid var(--bd);font-size:13px;cursor:pointer;color:var(--tx)}.chip.on{background:var(--gr);color:#fff;border-color:var(--gr)}
+input,select{padding:10px;border-radius:10px;border:1px solid var(--bd);background:var(--sf);color:var(--tx);font-size:14px;width:100%;margin-bottom:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:12px}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:14px;padding:10px;margin-bottom:0}
+.em{font-size:48px;text-align:center}.nm{font-size:14px;font-weight:600}.mu{color:var(--mu);font-size:12px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:6px;margin-top:8px}
+.btn{padding:9px 14px;border:0;border-radius:10px;background:var(--gr);color:#fff;font-weight:700;cursor:pointer;font-size:14px}
+.btn.s{padding:5px 10px;font-size:12px}.btn.o{background:transparent;color:var(--gr);border:1.5px solid var(--gr)}.btn.r{background:var(--rd)}.btn.w{width:100%}
+.q{display:flex;align-items:center;background:var(--gr);color:#fff;border-radius:8px}.q button{background:none;border:0;color:#fff;font-size:18px;width:28px;height:28px;cursor:pointer}.q span{min-width:16px;text-align:center;font-weight:700}
+.fab{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));background:var(--gr);color:#fff;border-radius:14px;padding:14px 18px;display:none;justify-content:space-between;font-weight:700;cursor:pointer;z-index:6}
+.md{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:flex-end;justify-content:center;z-index:10}
+.bx{background:var(--bg);width:100%;max-width:520px;max-height:90%;overflow-y:auto;border-radius:20px 20px 0 0;padding:18px 16px calc(18px + env(safe-area-inset-bottom,0px))}
+.bx h3{margin:0 0 10px}.li{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--bd)}.li .nm{flex:1}
+.kp{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:12px}.kp div{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:10px}.kp b{display:block;font-size:20px}
+.tw{overflow-x:auto;background:var(--sf);border:1px solid var(--bd);border-radius:12px}table{width:100%;border-collapse:collapse;font-size:13px;min-width:540px}th,td{padding:9px;text-align:left;border-bottom:1px solid var(--bd)}th{color:var(--mu);font-size:11px}
+.tag{padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700;background:#e3f4e6;color:#0c6b1b}.tag.low{background:#fdecc8;color:#8a5a00}.tag.out{background:#fbdad7;color:#a1241a}.tag.b{background:#dbe8fd;color:#1a4fa0}
+.oc{background:var(--sf);border:1px solid var(--bd);border-radius:14px;padding:12px;margin-bottom:10px}
+.trk{display:flex;margin:10px 0;font-size:11px;text-align:center}.trk div{flex:1;color:var(--mu)}.trk i{display:block;width:24px;height:24px;border-radius:50%;background:var(--bd);margin:0 auto 3px;line-height:24px;font-style:normal}.trk .d{color:var(--gr);font-weight:700}.trk .d i{background:var(--gr);color:#fff}
+.note{background:var(--sf);border:1px dashed var(--bd);border-radius:12px;padding:10px;font-size:12px;color:var(--mu);margin-top:16px}
+</style>
+</head>
+<body>
+<header>
+  <div class="top"><span class="logo">zippy⚡<small style="font-size:10px;font-weight:600;display:block;margin-top:-4px">by Smith Technology Solutions</small></span><span class="mu" style="color:#1a1a1a">Delivery in 10 mins</span></div>
+  <div class="roles" id="roles"></div>
+</header>
+<main id="main"></main>
+<div class="fab" id="fab" onclick="cartOpen()"><span id="fc"></span><span id="ft"></span></div>
+<div class="md" id="md" onclick="if(event.target===this)cl()"><div class="bx" id="bx"></div></div>
+
+<script>
+const K="zippy_demo_v1",uid=()=>Math.random().toString(36).slice(2,8),$=i=>document.getElementById(i),rs=n=>"₹"+Number(n).toLocaleString("en-IN");
+const SL={"Fruits & Veg":"s1",Staples:"s1","Dairy & Eggs":"s2",Snacks:"s3",Drinks:"s3",Care:"s3"};
+const seed=()=>({sellers:[{id:"s1",name:"FreshMart Wholesale"},{id:"s2",name:"Daily Dairy Co."},{id:"s3",name:"Snack Hub"}],orders:[],log:[],products:[
+["Fruits & Veg","🍌","Banana Robusta","6 pcs",39,49,42,15],["Fruits & Veg","🍅","Tomato Hybrid","500 g",24,30,6,20],["Fruits & Veg","🥕","Carrot Ooty","500 g",35,42,30,10],["Fruits & Veg","🍎","Apple Shimla","4 pcs",129,150,25,10],["Fruits & Veg","🧅","Onion","1 kg",38,45,80,20],
+["Dairy & Eggs","🥛","Toned Milk","500 ml",30,30,60,25],["Dairy & Eggs","🥚","Farm Eggs","6 pcs",54,60,70,20],["Dairy & Eggs","🧈","Salted Butter","100 g",58,62,9,12],["Dairy & Eggs","🧀","Cheese Slices","10 slices",125,140,22,8],
+["Snacks","🍟","Potato Chips","90 g",20,20,120,30],["Snacks","🍪","Choco Cookies","120 g",35,40,55,20],["Snacks","🍫","Milk Chocolate","50 g",50,55,0,15],
+["Drinks","🥤","Cola Bottle","750 ml",40,45,48,20],["Drinks","🧃","Mango Juice","1 L",99,110,30,10],["Drinks","💧","Mineral Water","1 L",20,20,200,50],
+["Staples","🍚","Basmati Rice","1 kg",119,135,60,15],["Staples","🌾","Atta Whole Wheat","5 kg",245,270,28,10],["Staples","🛢️","Sunflower Oil","1 L",135,150,40,10],
+["Care","🧼","Bath Soap","3 pack",120,135,35,10],["Care","🪥","Toothpaste","150 g",95,105,44,12]
+].map(a=>({id:uid(),seller:SL[a[0]],cat:a[0],em:a[1],nm:a[2],wt:a[3],pr:a[4],mrp:a[5],qty:a[6],rl:a[7]}))});
+let D;try{D=JSON.parse(localStorage.getItem(K))}catch(e){}if(!D)D=seed();
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(D))}catch(e){}};
+const P=id=>D.products.find(p=>p.id===id);
+const ST=["confirmed","packing","out","delivered"],SN=["Confirmed","Packing","On the way","Delivered"],RID=["Ravi","Arun","Karthik"];
+let role="customer",ctab="shop",cat="All",q="",cart={},sel="s1",lowOnly=false,rider="Ravi";
+const stat=p=>p.qty===0?["out","Out of stock"]:p.qty<=p.rl?["low","Low stock"]:["","In stock"];
+function mv(p,ch,why,oid){p.qty+=ch;D.log.unshift({t:Date.now(),pid:p.id,nm:p.nm,seller:p.seller,ch,why,oid})}
+
+function nav(){$("roles").innerHTML=[["customer","🛒 Customer"],["seller","📦 Seller"],["admin","📊 Admin"],["delivery","🛵 Rider"]].map(r=>`<button class="${role===r[0]?"on":""}" onclick="setRole('${r[0]}')">${r[1]}</button>`).join("")}
+function setRole(r){role=r;draw();window.scrollTo(0,0)}
+function draw(){nav();$("main").innerHTML=({customer:cust,seller:sellr,admin:adm,delivery:dlv})[role]()+`<div class="note" style="text-align:center">Demo of the <b>Zippy</b> quick-commerce platform · Built by <b>Smith Technology Solutions</b><br>All four apps share live data on this device. <a href="#" onclick="reset();return false">Reset demo data</a></div>`;fab()}
+function reset(){if(confirm("Reset all demo data?")){D=seed();cart={};save();draw()}}
+function cl(){$("md").style.display="none"}function op(h){$("bx").innerHTML=h;$("md").style.display="flex"}
+
+/* CUSTOMER */
+function qty(id){const n=cart[id]||0,p=P(id);if(!p.qty)return`<span class="tag out">Sold out</span>`;return n?`<div class="q"><button onclick="chg('${id}',-1)">−</button><span>${n}</span><button onclick="chg('${id}',1)">+</button></div>`:`<button class="btn s o" onclick="chg('${id}',1)">ADD</button>`}
+function cust(){const t=`<div class="chips"><div class="chip ${ctab==="shop"?"on":""}" onclick="ctab='shop';draw()">Shop</div><div class="chip ${ctab==="orders"?"on":""}" onclick="ctab='orders';draw()">My orders (${D.orders.length})</div></div>`;
+ if(ctab==="orders")return t+(D.orders.length?D.orders.map(ocard).join(""):`<div class="oc mu">No orders yet.</div>`);
+ const cats=["All",...new Set(D.products.map(p=>p.cat))],l=D.products.filter(p=>(cat==="All"||p.cat===cat)&&p.nm.toLowerCase().includes(q.toLowerCase()));
+ return t+`<input placeholder="Search “milk”, “chips”…" value="${q}" oninput="q=this.value;draw();const e=document.querySelector('input');e.focus();e.setSelectionRange(q.length,q.length)"><div class="chips">${cats.map(c=>`<div class="chip ${c===cat?"on":""}" onclick="cat='${c.replace("&","&amp;")}'.replace('&amp;','&');draw()">${c}</div>`).join("")}</div><div class="grid">${l.map(p=>`<div class="card"><div class="em">${p.em}</div><div class="nm">${p.nm}</div><div class="mu">${p.wt}</div><div class="row"><b>${rs(p.pr)}</b>${qty(p.id)}</div></div>`).join("")}</div>`}
+function chg(id,d){const p=P(id),n=(cart[id]||0)+d;if(n>p.qty){alert("Only "+p.qty+" in stock");return}if(n<=0)delete cart[id];else cart[id]=n;draw();if($("md").style.display==="flex"&&$("bx").dataset.v==="cart")cartOpen()}
+function tot(){let s=0,n=0;for(const i in cart){s+=cart[i]*P(i).pr;n+=cart[i]}const d=!s||s>=199?0:25,h=s?5:0;return{s,n,d,h,t:s+d+h}}
+function fab(){const t=tot();$("fab").style.display=role==="customer"&&t.n?"flex":"none";$("fc").textContent=t.n+" item"+(t.n>1?"s":"");$("ft").textContent=rs(t.s)+" · View cart ›"}
+function cartOpen(){const t=tot();if(!t.n){cl();return}op(`<h3>My cart</h3>`+Object.keys(cart).map(i=>{const p=P(i);return`<div class="li"><span style="font-size:28px">${p.em}</span><div class="nm">${p.nm}<div class="mu">${rs(p.pr)}</div></div>${qty(i)}</div>`}).join("")+`<div class="oc" style="margin-top:12px">Items ${rs(t.s)}<br>Delivery ${t.d?rs(t.d):"FREE"} · Handling ${rs(t.h)}<br><b>Total ${rs(t.t)}</b></div><input id="cn" placeholder="Full name"><input id="cp" placeholder="Phone" inputmode="tel"><input id="ca" placeholder="Delivery address"><select id="cm"><option>UPI</option><option>Card</option><option>COD</option></select><button class="btn w" onclick="place()">Place order · ${rs(t.t)}</button>`);$("bx").dataset.v="cart"}
+function place(){const g=i=>$(i).value.trim();if(!g("cn")||!g("cp")||!g("ca")){alert("Please fill name, phone and address");return}
+ for(const i in cart)if(cart[i]>P(i).qty){alert(P(i).nm+" just went out of stock");return}
+ const t=tot(),o={id:"ZP"+Math.floor(1000+Math.random()*9000),items:Object.keys(cart).map(i=>({pid:i,q:cart[i],pr:P(i).pr})),total:t.t,name:g("cn"),phone:g("cp"),addr:g("ca"),pay:g("cm"),status:"confirmed",rider:"",t:Date.now()};
+ o.items.forEach(it=>mv(P(it.pid),-it.q,"sale",o.id));D.orders.unshift(o);cart={};save();cl();ctab="orders";draw()}
+function ocard(o){const i=ST.indexOf(o.status);return`<div class="oc"><div class="row" style="margin:0"><b>${o.id}</b><span class="tag ${o.status==="cancelled"?"out":"b"}">${o.status==="cancelled"?"Cancelled":SN[i]}</span></div><div class="mu">${o.items.map(x=>P(x.pid).em+"×"+x.q).join(" ")} · ${rs(o.total)} · ${o.pay}</div>${o.status==="cancelled"?"":`<div class="trk">${SN.map((s,k)=>`<div class="${k<=i?"d":""}"><i>${k<i?"✓":k+1}</i>${s}</div>`).join("")}</div>`}${o.rider?`<div class="mu">Rider: ${o.rider} 🛵</div>`:""}</div>`}
+
+/* SELLER + INVENTORY */
+function sellr(){const l=D.products.filter(p=>p.seller===sel&&(!lowOnly||p.qty<=p.rl));const all=D.products.filter(p=>p.seller===sel);
+ return`<select onchange="sel=this.value;draw()">${D.sellers.map(s=>`<option value="${s.id}" ${s.id===sel?"selected":""}>${s.name}</option>`).join("")}</select>
+ <div class="kp"><div>Products<b>${all.length}</b></div><div>Stock value<b>${rs(all.reduce((s,p)=>s+p.qty*p.pr,0))}</b></div><div>Low / out<b>${all.filter(p=>p.qty<=p.rl).length}</b></div><div>Units sold<b>${-D.log.filter(e=>e.seller===sel&&e.why==="sale").reduce((s,e)=>s+e.ch,0)}</b></div></div>
+ <div class="row" style="margin:0 0 8px"><button class="chip ${lowOnly?"on":""}" onclick="lowOnly=!lowOnly;draw()">⚠ Low stock only</button><button class="btn s" onclick="pform()">+ Add product</button></div>
+ <div class="tw"><table><tr><th>Product</th><th>Price</th><th>Stock</th><th>Status</th><th></th></tr>${l.map(p=>{const s=stat(p);return`<tr><td>${p.em} ${p.nm}<div class="mu">${p.wt}</div></td><td>${rs(p.pr)}</td><td><b>${p.qty}</b> <span class="mu">/ min ${p.rl}</span></td><td><span class="tag ${s[0]}">${s[1]}</span></td><td><button class="btn s" onclick="adj('${p.id}')">Adjust</button></td></tr>`}).join("")||`<tr><td colspan="5" class="mu">Nothing here</td></tr>`}</table></div>`}
+function adj(id){const p=P(id);op(`<h3>${p.em} ${p.nm}</h3><div class="mu">Current stock: ${p.qty}</div><input id="an" type="number" placeholder="Quantity (+ add, − remove)" value="${p.qty<=p.rl?p.rl*2:""}"><select id="ar"><option value="restock">Restock</option><option value="adjustment">Correction</option><option value="wastage">Wastage / expired</option></select><button class="btn w" onclick="doAdj('${id}')">Save</button>`)}
+function doAdj(id){const p=P(id),n=parseInt($("an").value);if(!n){alert("Enter a non-zero number");return}if(p.qty+n<0){alert("Stock can’t go below zero");return}mv(p,n,$("ar").value);save();cl();draw()}
+function pform(){op(`<h3>Add product</h3><input id="pe" placeholder="Emoji" value="📦"><input id="pn" placeholder="Name"><input id="pw" placeholder="Unit (e.g. 500 g)"><input id="pc" placeholder="Category" value="Staples"><input id="pp" type="number" placeholder="Selling price ₹"><input id="pm" type="number" placeholder="MRP ₹"><input id="pq" type="number" placeholder="Opening stock" value="0"><button class="btn w" onclick="doP()">Save</button>`)}
+function doP(){const g=i=>$(i).value.trim(),pr=+g("pp"),mrp=+g("pm");if(!g("pn")||!pr||!mrp){alert("Name, price and MRP are required");return}if(mrp<pr){alert("MRP can’t be lower than price");return}
+ const p={id:uid(),seller:sel,cat:g("pc")||"General",em:g("pe")||"📦",nm:g("pn"),wt:g("pw"),pr,mrp,qty:0,rl:10};D.products.push(p);if(+g("pq"))mv(p,+g("pq"),"restock");save();cl();draw()}
+
+/* ADMIN */
+function adm(){const act=D.orders.filter(o=>o.status!=="cancelled"),rev=act.reduce((s,o)=>s+o.total,0),pend=D.orders.filter(o=>["confirmed","packing"].includes(o.status)).length;
+ return`<div class="kp"><div>Orders<b>${D.orders.length}</b></div><div>Revenue<b>${rs(rev)}</b></div><div>To pack / ship<b>${pend}</b></div><div>Low / out of stock<b>${D.products.filter(p=>p.qty<=p.rl).length}</b></div></div>
+ <h3 style="margin:8px 0">Orders</h3>`+(D.orders.length?D.orders.map(o=>`<div class="oc"><div class="row" style="margin:0"><b>${o.id}</b><span>${rs(o.total)}</span></div><div class="mu">${o.name} · ${o.phone} · ${o.addr}</div><div class="mu">${o.items.map(x=>P(x.pid).nm+"×"+x.q).join(", ")}</div>
+ ${o.status==="cancelled"?`<span class="tag out">Cancelled</span>`:o.status==="delivered"?`<span class="tag">Delivered by ${o.rider}</span>`:`<div class="row"><select style="margin:0" onchange="setSt('${o.id}',this.value)">${ST.slice(0,3).map((s,k)=>`<option value="${s}" ${o.status===s?"selected":""}>${SN[k]}</option>`).join("")}</select><select style="margin:0" onchange="setR('${o.id}',this.value)"><option value="">Assign rider</option>${RID.map(r=>`<option ${o.rider===r?"selected":""}>${r}</option>`).join("")}</select><button class="btn s r" onclick="cancel('${o.id}')">Cancel</button></div>`}</div>`).join(""):`<div class="oc mu">No orders yet. Place one from the Customer app.</div>`)+
+ `<h3 style="margin:14px 0 8px">Recent stock movements</h3><div class="tw"><table><tr><th>Product</th><th>Change</th><th>Reason</th></tr>${D.log.slice(0,8).map(e=>`<tr><td>${e.nm}</td><td style="color:var(--${e.ch>0?"gr":"rd"});font-weight:700">${e.ch>0?"+":""}${e.ch}</td><td>${e.why}${e.oid?" · "+e.oid:""}</td></tr>`).join("")||`<tr><td colspan="3" class="mu">None yet</td></tr>`}</table></div>`}
+const O=id=>D.orders.find(o=>o.id===id);
+function setSt(id,s){const o=O(id);o.status=s;if(!o.rider&&s!=="confirmed")o.rider=RID[Math.floor(Math.random()*3)];save();draw()}
+function setR(id,r){O(id).rider=r;save();draw()}
+function cancel(id){if(!confirm("Cancel this order and restore stock?"))return;const o=O(id);o.status="cancelled";o.items.forEach(it=>mv(P(it.pid),it.q,"return",id));save();draw()}
+
+/* DELIVERY */
+function dlv(){const l=D.orders.filter(o=>o.rider===rider&&["packing","out"].includes(o.status));
+ return`<select onchange="rider=this.value;draw()">${RID.map(r=>`<option ${r===rider?"selected":""}>${r}</option>`).join("")}</select><h3 style="margin:6px 0">My deliveries (${l.length})</h3>`+
+ (l.length?l.map(o=>`<div class="oc"><div class="row" style="margin:0"><b>${o.id}</b><span class="tag b">${o.status==="out"?"On the way":"Ready to pick"}</span></div><div class="mu">📍 ${o.addr}<br>📞 ${o.name} · ${o.phone}<br>${o.pay==="COD"?"Collect "+rs(o.total):"Paid online"}</div><button class="btn w" style="margin-top:8px" onclick="setSt('${o.id}','${o.status==="out"?"delivered":"out"}')">${o.status==="out"?"Mark delivered":"Picked up – start delivery"}</button></div>`).join(""):`<div class="oc mu">No active deliveries. In Admin, set an order to Packing and assign ${rider}.</div>`)}
+draw();
+</script>
+</body>
+</html>
